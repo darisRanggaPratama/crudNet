@@ -26,7 +26,7 @@ namespace SearchLocalDB
 
 		private void Browse_Load(object sender, EventArgs e)
 		{
-			// TODO: This line of code loads data into the 'appDataSet.phone' table. You can move, or remove it, as needed.
+			
 			this.phoneTableAdapter.Fill(this.appDataSet.phone);
 			Edit(false);
 		}
@@ -107,12 +107,12 @@ namespace SearchLocalDB
 			if (e.KeyCode == Keys.Delete)
 			{
 				if (MessageBox.Show("Are you sure want to delete this record?", "Message", 
-					MessageBoxButtons.YesNo, MessageBoxIcon.Question)!=DialogResult.Yes)
+					MessageBoxButtons.YesNo, MessageBoxIcon.Question)==DialogResult.Yes)
 				{
-					return;
+					phoneBindingSource.RemoveCurrent();
 				}
 
-				phoneBindingSource.RemoveCurrent();
+				
 			}
 		}
 	}
